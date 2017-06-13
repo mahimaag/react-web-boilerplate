@@ -1,0 +1,13 @@
+@import "../../../scss/common.scss";
+
+// :export {
+//     btnPrimary: $primaryColor
+// }
+
+.btn_secondary {
+    background-color: $primaryColor
+}
+
+.btn_primary {
+    background-color: blue
+}

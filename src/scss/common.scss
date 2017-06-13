@@ -1,0 +1,17 @@
+/*@import '../../node_modules/owl.carousel/dist/assets/owl.carousel.css';
+@import '../../node_modules/material-design-lite/material.min.css';*/
+
+// import all third party css here.
+@import "~bootstrap/dist/css/bootstrap.css";
+// @import "../assets/fonts/font.css";
+// @import "../assets/fonts/font-awesome.css";
+
+// import service provider specific ( assets ) css here
+@import "../assets/styles/core.styles.scss";
+
+// @import "./app.scss";
+// @import "../app/components/Header/style";
+// @import "../app/components/Footer/style";
+// @import "../app/containers/Rails/style";
+// @import "../app/components/Card/style";
+// @import "../app/containers/ContentList/style";
