@@ -54,7 +54,7 @@ function startExpressServer() {
         console.log('Magic happens on port ' + port);
     });
 
-    app.get('/', function(req, res, next){
+    app.get('*', function(req, res, next){
         return res.sendFile(path.join(__dirname, '../src/index.html'));
     })
 

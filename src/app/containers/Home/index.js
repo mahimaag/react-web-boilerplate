@@ -29,7 +29,7 @@ class Home extends Component {
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-    getHomeContent: (pageOffset) => dispatch(getHomeContent(pageOffset)),
+    // getHomeContent: (pageOffset) => dispatch(getHomeContent(pageOffset)),
 });
 
 const HomeContainer = connect(mapStateToProps)(Home);
