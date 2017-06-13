@@ -42,7 +42,8 @@ compiler.watch({ // watch options:
     // pass a number to set the polling interval
 }, function(err, stats) {
     // ...
-    console.log('Watch executed...');
+    console.log(' ==== Re-buiding ====');
+    console.log(stats.toString({ colors: true }));
     // startExpressServer();
 });
 
