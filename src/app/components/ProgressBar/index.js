@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.scss'
-import json from '../config.json';
+import json from '../config.yaml';
 class CircularProgressbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            percentage: props.initialAnimation ? 0 : props.percentage,
+            percentage: props.initialAnimation ? 0 : props.percentage
         };
     }
 
@@ -16,7 +16,7 @@ class CircularProgressbar extends React.Component {
             this.initialTimeout = setTimeout(() => {
                 this.requestAnimationFrame = window.requestAnimationFrame(() => {
                     this.setState({
-                        percentage: this.props.percentage,
+                        percentage: this.props.percentage
                     });
                 });
             }, 0);
@@ -25,7 +25,7 @@ class CircularProgressbar extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            percentage: nextProps.percentage,
+            percentage: nextProps.percentage
         });
     }
 

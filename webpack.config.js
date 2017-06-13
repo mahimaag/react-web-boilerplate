@@ -2,6 +2,7 @@
 //const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 const bourbon = require('node-bourbon').includePaths;
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
@@ -10,7 +11,8 @@ const config = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -34,16 +36,11 @@ const config = {
                 use: 'url-loader?limit=10000',
             },
             {
-                test: /.(yaml|json)$/,
+                test: /\.yaml$/,
                 use: [
                     {loader: 'json-loader'},
                     {loader: 'yaml-loader'},
                 ]
-            },
-            {
-                test: /(\.css$)|(\.scss$)/,
-                include: /node-modules/,
-                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -51,12 +48,13 @@ const config = {
         extensions: ['.json', '.js', '.jsx', '.css'],
     },
     devtool: 'source-map',
-    devServer: {
-        contentBase: './src',
-        port: 9000,
-        historyApiFallback: true
-    },
+    // devServer: {
+    //     contentBase: './src',       // overridden in run.js
+    //     port: 9000,
+    //     historyApiFallback: true,
+    // },
     plugins: [
+        new LiveReloadPlugin(),
         new ExtractTextPlugin('style.css'),
         // new HtmlWebpackPlugin({
         //     template: './app/index.html',

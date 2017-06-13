@@ -6,7 +6,7 @@ import SmsUsageCard from '../SmsUsageCard';
 import DataUsageCard from '../DataUsageCard';
 import VoiceUsageCard from '../VoiceUsageCard';
 import UsageCategoryTabs from '../UsageCatgoryTabs';
-import config from '../config.json';
+import config from '../config.yaml';
 
 class UsageCard extends React.Component {
     constructor(props) {

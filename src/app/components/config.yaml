@@ -1,0 +1,9 @@
+---
+progressPercentage:
+  highUsage: high-usage
+  mediumUsage: medium-usage
+  lowUsage: low-usage
+usageCards:
+- Data
+- Sms
+- Voice
