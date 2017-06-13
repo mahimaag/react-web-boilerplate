@@ -5,6 +5,7 @@ import UsageCategorySlider from '../UsageCategorySlider';
 import SmsUsageCard from '../SmsUsageCard';
 import DataUsageCard from '../DataUsageCard';
 import VoiceUsageCard from '../VoiceUsageCard';
+import UsageCategoryTabs from '../UsageCatgoryTabs';
 import config from '../config.json';
 
 class UsageCard extends React.Component {
@@ -51,7 +52,6 @@ class UsageCard extends React.Component {
         return (
             <div>
                 <UsageCategorySlider slides={sliderComponents}/>
-                <CircularProgressbar percentage={10} />
             </div>
         );
     }

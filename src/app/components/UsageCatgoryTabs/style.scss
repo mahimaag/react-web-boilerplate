@@ -1,0 +1,19 @@
+#noanim-tab-example{
+  border-top: 1px solid #ddd;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  background-color: transparent;
+  border: transparent;
+}
+.nav-tabs > li > a{
+  color: #B3B3B3;
+}
+.nav-tabs > li:before {
+  content: " | ";
+  color: gray;
+  padding: 9px 0px;
+  position: absolute;
+}
+.nav-tabs > li:first-child:before {
+  content: '';
+}

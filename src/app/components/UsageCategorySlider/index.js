@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
-import styles from './style.scss';
 import PropTypes from 'prop-types';
+import UsageCategoryTabs from '../UsageCatgoryTabs';
+import styles from './style.scss';
 
 class UsageCategorySlider extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class UsageCategorySlider extends React.Component {
         };
         return (
             <div className="slider-container">
+                <UsageCategoryTabs/>
                 <Slider {...settings}>
                     {this.props.slides}
                 </Slider>
