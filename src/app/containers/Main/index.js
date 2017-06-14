@@ -1,18 +1,17 @@
 import React,{Component} from 'react';
-import Header from '../../components/Header/Header';
+import ApplicationHeader from '../../components/ApplicationHeader';
+import UserHeader from '../../components/UserHeader';
 import Footer from '../../components/Footer/Footer';
 import Home from '../Home';
-// import ShowDetail from '../ContentDetail'
-// import ViewAll from '../ContentList';
 import {Route, Switch} from 'react-router-dom';
-// import routes from '../../../routeConfig';
-// import {createRoute} from '../../../utils/helper';
 import LandingPage from '../LandingPage';
+import styles from './style.scss';
 
-class Main extends Component{
+class Main extends React.Component{
     render(){
         return (<div>
-           <Header/>
+           <ApplicationHeader/>
+           <UserHeader />
             <Switch>
                 <Route exact path="/" component={LandingPage} />
                 <Route path="/home" component={Home}/>

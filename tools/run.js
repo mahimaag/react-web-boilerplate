@@ -17,13 +17,24 @@ const source = path.resolve(__dirname, '../src/assets/' + vendor);
 const target = path.resolve(__dirname, '../src/assets/');
 
 const staticFilePath = path.resolve(__dirname, '../dist/'+vendor);
+// const imageFilePath = path.resolve(__dirname, '../src/assets/images');
+// const fontFilePath = path.resolve(__dirname, '../src/assets/fonts');
+
+const pickVendorImagesFrom = path.resolve(target, 'images');
+const dumpVendorImagesTo = path.resolve(staticFilePath, 'images');
+
+const pickVendorFontsFrom = path.resolve(target, 'fonts');
+const dumpVendorFontsTo = path.resolve(staticFilePath, 'fonts');
+
+
 console.log('Will serve static files@ ', staticFilePath);
-app.use(express.static(staticFilePath));
+app.use(express.static(staticFilePath));                                      // serve vendor's dist.
 
 webpackConfig.output.path = path.resolve(webpackConfig.output.path, vendor);
-// webpackConfig.devServer.contentBase = path.resolve(__dirname, '../src');
 
-var copyDone = fs.copySync(source, target);
+var assetCopyDone = fs.copySync(source, target);                              // copy vendor's assets... Might not be used in future.
+var copyImages    = fs.copySync(pickVendorImagesFrom, dumpVendorImagesTo);    // copy vendor images in dist.
+var copyFonts     = fs.copySync(pickVendorFontsFrom, dumpVendorFontsTo);      // copy vendor's fonts in dist.
 
 // returns a Compiler instance
 var compiler = webpack(webpackConfig);

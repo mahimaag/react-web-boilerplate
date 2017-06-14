@@ -5,8 +5,9 @@ import App from './app';
 import  store from './app/store';
 import CustomCaller from './js/custom';
 import {Provider} from 'react-redux';
-
+import styles from './scss/app.scss';
 import $ from 'jquery';
+import bootstrap from '../node_modules/bootstrap/dist/js/bootstrap';
 
 window.$ = $;
 
