@@ -6,29 +6,24 @@ import {Panel} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import Tabs from './../Menu'
 
-const getSelectedListId = (a) =>{
-  console.log(a)
-}
+//Mobile List panel component
 class MobileListPanel extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { };
-  }
-  getInitialState() {
-    return { selectedPanelTabId: 1001 , selectedPanelAccountType:['P', 'H', 'I', 'T']}
-
+    this.state = { selectedPanelTabId: 10088 , selectedPanelAccountType:['P', 'H', 'I', 'T']};
   }
 
+
+  //Check the initial state of the panel
   isActive (id) {
     console.log( this.state.selectedPanelTabId, id)
     return this.state.selectedPanelTabId;
   }
 
+  //Update the value of the active tab
   setActiveTab  (selectedPanelTabId, accountType) {
-    console.log("L:L:LL", selectedPanelTabId, accountType)
     this.setState({ selectedPanelTabId:selectedPanelTabId, selectedPanelAccountType:accountType });
     this.props.changeFirst({selectedPanelTabId:selectedPanelTabId,  selectedPanelAccountType:accountType})
-    console.log("L:L:LL", selectedPanelTabId, accountType)
   }
 
   render () {
@@ -37,28 +32,27 @@ class MobileListPanel extends React.Component{
       <Panel header={this.props.data.usnerName + "'s Account"} >
         Account Number {this.props.data.accountNumber}
         <ul className="list-unstyled" >
-          {this.props.data.total.map(function(a, b){
-            if(a.name !=undefined)
+          {this.props.data.total.map(function(el, id){
+            if(el.name !=undefined)
             return  <li
               className="li-style"
-              key={b}
-              onClick={changeState.setActiveTab.bind(changeState, a.id, a.accountType)}
-              className={ changeState.state.selectedPanelTabId == a.id? ' li-style active-mobile': 'li-style' }>
+              key={id}
+              onClick={changeState.setActiveTab.bind(changeState, el.id, el.accountType)}
+              className={ changeState.state.selectedPanelTabId == el.id? ' li-style active-mobile': 'li-style' }>
               <span className="image-wrap">
                 <FontAwesome
                   className='mobile-panel-icon'
-                  name={a.fontIcon}
+                  name={el.fontIcon}
                   size='3x'
-                  //  spin
                   style={{}}
                   />
               </span>
               <div >
                 <h5>
-                  {a.name}
+                  {el.name}
                 </h5>
                 <p>
-                  {a.number}
+                  {el.number}
                 </p>
               </div>
            </li>
