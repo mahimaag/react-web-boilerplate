@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/lib/Button';
 import {Collapse, Well} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
+//Create the Tab components that will merge and create the complete menu
 class Tab extends React.Component{
   render () {
     return <div>
@@ -19,7 +20,6 @@ class Tab extends React.Component{
                 className=''
                 name={this.props.icon}
                 size='lg'
-                //  spin
                 style={{}}
               />
             </span>
@@ -32,10 +32,10 @@ class Tab extends React.Component{
         <Collapse  in={this.props.isActive ==this.props.id}>
 
           <div >
-            {this.props.subMenu.map(function(a, b){
-              if(a.name !=undefined)
-              return  <p className="chiled-menu-items" key={b}>
-                {a.name}
+            {this.props.subMenu.map(function(el, id){
+              if(el.name !=undefined)
+              return  <p className="chiled-menu-items" key={id}>
+                {el.name}
               </p>
             })}
 
@@ -51,10 +51,7 @@ class Tab extends React.Component{
   class Tabs extends React.Component{
     constructor(props) {
       super(props);
-      this.state = { };
-    }
-    getInitialState() {
-      return { selectedTabId: 1 }
+      this.state = { selectedTabId: 1 };
     }
 
     isActive (id) {
@@ -70,9 +67,9 @@ class Tab extends React.Component{
       const total = this.props.data.points.total
       let isShow = true
       const tabs = total.map(function (el, i) {
-        if(!this.props.selectedPanelAccountType){
+        if(!this.props.selectedPanelAccountType){    // check if this.props.selectedPanelAccountType is coming undefined, this will come only first time
           isShow = true
-        }else if(el.accountType.indexOf(this.props.selectedPanelAccountType[0]) !==-1){
+        }else if(el.accountType.indexOf(this.props.selectedPanelAccountType[0]) !==-1){  // check that the accountType Array of the Mobile panel list existing in the accountType array of the Menu
           isShow = true
         }else{
           isShow = false
