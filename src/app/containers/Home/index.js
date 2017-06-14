@@ -68,6 +68,7 @@ const tabContent = [
     }
 ];
 
+//Data for the Menu Items
 const data = {
     points: {
       total: [
@@ -83,6 +84,7 @@ const data = {
     }
   }
 
+  // Data for the Mobile Panels
   const accounts = {
       usnerName:"Tabish Khan",
       accountNumber:"11223444",
@@ -97,10 +99,14 @@ class Home extends Component {
     // componentDidMount() {
     //     // this.props.getHomeContent(this.props.home.items.length);
     // }
+
+    // constructor for the props
     constructor(props) {
       super(props);
       this.state = { };
     }
+
+  //Get the default state
   getInitialState (){
    return {
      selectedMobilePanelId: 1,
@@ -108,6 +114,7 @@ class Home extends Component {
    }
  }
 
+   //Update the state from any of the components
  changeFirst (newValue) {
    this.setState({
      selectedMobilePanelId: newValue.selectedPanelTabId,
@@ -121,8 +128,16 @@ class Home extends Component {
             <div>
                 <h1> This is home </h1>
                 <UsageCard tabs={tabContent}/>
-                <Tabs data={ data } selectedPanelAccountType={this.state.selectedPanelAccountType} changeFirst={this.changeFirst.bind(this)} />
-                <MobileListPanel data={accounts} selectedPanelAccountType={this.state.selectedPanelAccountType} changeFirst={this.changeFirst.bind(this)}/>
+
+                <Tabs data={ data }
+                  selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                  changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                />
+
+                <MobileListPanel data={accounts}
+                  selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                  changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                />
             </div>
         );
     }
