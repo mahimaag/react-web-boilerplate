@@ -1,8 +1,11 @@
 import React from 'react';
-import { FormGroup, ControlLabel, HelpBlock, FormControl } from 'react-bootstrap';
+import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox } from 'react-bootstrap';
+import {LoginFormFields} from '../../../constants/index';
 
 const InitialState = Object.freeze({
-    value: ''
+    email: '',
+    password: '',
+    rememberMe: false
 });
 
 export default class LoginForm extends React.Component {
@@ -20,26 +23,39 @@ export default class LoginForm extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({ value: e.target.value });
+        if(e.target){
+            switch (e.target.type){
+                case LoginFormFields.email:
+                    this.setState({email: e.target.value});
+                    break;
+                case LoginFormFields.password:
+                    this.setState({password: e.target.value});
+                    break;
+                case LoginFormFields.checkbox:
+                    this.setState({rememberMe: e.target.checked});
+                    break;
+                default:
+                    break;
+            }
+        }
+        console.log(this.state);
     }
 
     render() {
         return (
             <form>
-                <FormGroup
-                controlId="formBasicText"
-                validationState={this.getValidationState()}
-                >
-                <ControlLabel>Working example with validation</ControlLabel>
-                <FormControl
-                    type="text"
-                    value={this.state.value}
-                    placeholder="Enter text"
-                    onChange={this.handleChange}
-                />
-                <FormControl.Feedback />
-                <HelpBlock>Validation is based on string length.</HelpBlock>
+                <FormGroup controlId="formControlsEmail">
+                    <ControlLabel>Email/Username</ControlLabel>
+                    <FormControl id="formControlsEmail" type="email" label="Email address"
+                                 value={this.state.email} placeholder="Enter email" onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>
+                <FormGroup controlId="formControlsPassword">
+                    <ControlLabel>Password</ControlLabel>
+                    <FormControl id="formControlsPassword" type="password" label="Password" value={this.state.password} placeholder="Password" onChange={(e) => this.handleChange(e)}/>
+                </FormGroup>
+                <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')}>
+                    Remember Me
+                </Checkbox>
             </form>
         );
     }

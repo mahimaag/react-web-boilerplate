@@ -18,6 +18,7 @@ class UsageCategorySlider extends React.Component {
         const tabsTitles = this.props.data.map( datum => {
             return { title: datum.tabName };
         });
+        console.log('>>>>>>>>>>>>>>>>>>>>>>', this.props.slides)
         return (
             <div className="slider-container">
                 <UsageCategoryTabs tabs={tabsTitles} id="usage-card-tabs"/>
