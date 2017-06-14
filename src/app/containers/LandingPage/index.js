@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './style.scss';
 import LoginForm from '../../components/LoginForm';
+import {Button} from 'react-bootstrap'
 
 class LandingPage extends Component {
     componentDidMount() {
@@ -16,12 +17,9 @@ class LandingPage extends Component {
         <div>
             <h1>Login page</h1>
             <LoginForm />
-            <button className="btn_primary"> 
-                Primary Button
-            </button>
-            <button className="btn_secondary" >
-            Secondary Button
-            </button>
+            <Button type="submit" className="btn_primary">
+                Login
+            </Button>
         </div>
         );
     }

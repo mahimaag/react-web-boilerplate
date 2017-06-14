@@ -10,3 +10,9 @@ export const RequestMethod = {
     DELETE: 'DELETE',
 
 };
+
+export const LoginFormFields = {
+    email: 'email',
+    password: 'password',
+    checkbox: 'checkbox'
+};
