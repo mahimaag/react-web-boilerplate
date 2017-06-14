@@ -1,13 +1,17 @@
 /**
  * Created by intelligrape on 6/6/17.
  */
-import {LoginActions} from './constants';
-var _ = require('lodash');
 
-const initialState = {
+/**
+ * DO NOT USE REDUCER PER PAGE. REDUCER REPRESENT STATE OF ENTITIES.
+ */
+import { LoginActions } from './constants';
+import _ from 'lodash';
+
+const initialState = Object.freeze({
     login: {},
     isFetching: true
-};
+});
 
 const landingPageReducer = (state = initialState, action) => {
     let duplicateState = _.cloneDeep(state);
@@ -30,4 +34,4 @@ const landingPageReducer = (state = initialState, action) => {
     return duplicateState;
 };
 
-export default landingPageReducer;
+// export default landingPageReducer;

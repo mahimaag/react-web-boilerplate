@@ -45,6 +45,10 @@ const config = {
         ]
     },
     resolve: {
+        alias: {
+            utils: path.resolve(__dirname, './src/utils'),
+            constants: path.resolve(__dirname, './src/constants')
+        },
         extensions: ['.json', '.js', '.jsx', '.css'],
     },
     devtool: 'source-map',

@@ -1,10 +1,11 @@
 /**
  * Created by intelligrape on 2/6/17.
  */
-import HomeReducer from './containers/Home/reducer';
-import landingPageReducer from './containers/LandingPage/reducer';
+// import HomeReducer from './containers/Home/reducer';
+import user from './reducers/user.reducer';
+import account from './reducers/account.reducer';
 
 export default {
-    home: HomeReducer,
-    landing: landingPageReducer
+    user,
+    account
 };
