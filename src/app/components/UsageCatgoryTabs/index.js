@@ -4,13 +4,16 @@ import { Tabs, Tab } from 'react-bootstrap';
 import styles from './style.scss';
 
 class UsageCategoryTabs extends React.Component {
+
+    handleClick = (tabIndex) => {
+        this.props.onClick(tabIndex);
+    };
     render() {
-        //const type = this.props.type;
         return (
-            <Tabs defaultActiveKey={1} animation={false} id={ this.props.id }>
+            <Tabs defaultActiveKey={this.props.activeKey} activeKey={this.props.activeKey} animation={false} id={ this.props.id } onSelect={(index) => this.handleClick(index)}>
                 {
                     this.props.tabs.map((tab, index) => (
-                        <Tab eventKey={index} title={tab.title} key={index}></Tab>
+                        <Tab eventKey={index} title={tab.title} key={index} ></Tab>
                     ))
                 }
             </Tabs>
@@ -18,10 +21,10 @@ class UsageCategoryTabs extends React.Component {
     }
 }
 
-/*AwareXButton.propTypes = {
-    type: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
-};*/
+UsageCategoryTabs.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    activeKey: PropTypes.number.isRequired
+};
 export default UsageCategoryTabs;
 
 
