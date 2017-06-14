@@ -1,0 +1,45 @@
+
+.mobile-panel-size{
+    width: 44%;
+    padding: 20px;
+}
+
+.li-style{
+  display: table;
+  border-left: 5px solid #A9A9A9;
+  width: 100%;
+  margin: 10px 0 20px 0;
+    .image-wrap{
+      display: table-cell;
+      vertical-align: middle;
+    }
+    div{
+      display: table-cell;
+      h5{
+        font-weight: bold;
+        color: #C4C4C4;
+      }
+    }
+}
+
+.mobile-panel-icon{
+  color: #C4C4C4;
+}
+.active-mobile{
+  border-left: 5px solid #FF9100;
+  .image-wrap{
+    display: table-cell;
+    vertical-align: middle;
+    span{
+      color: #FF9100;
+    }
+  }
+  div{
+      display: table-cell;
+    p{
+      font-weight: bold;
+      color: #FF9100;
+      text-decoration: underline;
+    }
+  }
+}
