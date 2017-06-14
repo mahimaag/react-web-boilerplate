@@ -1,12 +1,33 @@
 /**
  * Created by intelligrape on 6/6/17.
  */
-
+import {LoginActions} from './constants';
 const initialState = {
-    items: [],
-    limit: 0,
-    offset: 0,
-    total: 0
+    login: {},
+    isFetching: true
 };
 
-import { ACTION } from './constants';
+const landingPageReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case LoginActions.LoginSuccess:
+            return {
+                ...state,
+                login: {
+                    isLogin: true,
+                    data: action.data,
+                }
+            };
+        case LoginActions.LoginFailure:
+            return {
+                ...state,
+                login: {
+                    isLogin: false,
+                    error:action.error.message
+                }
+            };
+        default:
+            return state;
+    }
+};
+
+export default landingPageReducer;

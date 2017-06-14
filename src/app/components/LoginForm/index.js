@@ -1,5 +1,6 @@
 import React from 'react';
-import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox, Button } from 'react-bootstrap';
 import {LoginFormFields} from '../../../constants/index';
 
 const InitialState = Object.freeze({
@@ -39,7 +40,7 @@ export default class LoginForm extends React.Component {
             }
         }
         console.log(this.state);
-    }
+    };
 
     render() {
         return (
@@ -56,7 +57,14 @@ export default class LoginForm extends React.Component {
                 <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')}>
                     Remember Me
                 </Checkbox>
+                <Button type="submit" className="btn_primary" onClick={() => this.props.onLogin(this.state)}>
+                    Login
+                </Button>
             </form>
         );
     }
 }
+
+LoginForm.PropTypes = {
+    onLogin: PropTypes.func.isRequired
+};

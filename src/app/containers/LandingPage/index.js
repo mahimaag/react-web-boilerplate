@@ -6,26 +6,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './style.scss';
 import LoginForm from '../../components/LoginForm';
-import {Button} from 'react-bootstrap'
+import {login} from './action';
 
 class LandingPage extends Component {
     componentDidMount() {
     }
 
+    login = (formFields) => {
+        this.props.dispatch(login(formFields));
+    };
+
     render() {
         return (
         <div>
             <h1>Login page</h1>
-            <LoginForm />
-            <Button type="submit" className="btn_primary">
-                Login
-            </Button>
+            <LoginForm onLogin={(formFields) => this.login(formFields)}/>
         </div>
         );
     }
 }
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => {
+    return {
+        ...state.login
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     // getHomeContent: (pageOffset) => dispatch(getHomeContent(pageOffset)),
