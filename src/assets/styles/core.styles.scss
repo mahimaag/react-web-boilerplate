@@ -4,4 +4,9 @@ $high-progress-color:green;
 $medium-progress-color: yellow;
 $low-progress-color: #D53453;
 
-$app_background_image: url("/images/landing_page.jpg")
+$app-background-image: url("/images/landing_page.jpg");
+
+// Header configuration
+$app-header-text-color: white;
+$app-header-background-color: black;
+

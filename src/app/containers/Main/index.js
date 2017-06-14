@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
-import Header from '../../components/Header/Header';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer/Footer';
 import Home from '../Home';
 import {Route, Switch} from 'react-router-dom';
 import LandingPage from '../LandingPage';
 import styles from './style.scss';
 
-class Main extends Component{
+class Main extends React.Component{
     render(){
         return (<div>
            <Header/>
