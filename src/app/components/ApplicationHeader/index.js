@@ -1,4 +1,3 @@
-                    Header
 /**
  * Created by intelligrape on 5/6/17.
  */
@@ -8,7 +7,7 @@ import { Link } from 'react-router-dom';
 //Importing Styles
 import './style.scss';
 
-class Header extends React.Component {
+class ApplicationHeader extends React.Component {
     render() {
         return (
             <header className="app_header">
@@ -20,4 +19,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default ApplicationHeader;

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import Header from '../../components/Header';
+import ApplicationHeader from '../../components/ApplicationHeader';
+import UserHeader from '../../components/UserHeader';
 import Footer from '../../components/Footer/Footer';
 import Home from '../Home';
 import {Route, Switch} from 'react-router-dom';
@@ -9,7 +10,8 @@ import styles from './style.scss';
 class Main extends React.Component{
     render(){
         return (<div>
-           <Header/>
+           <ApplicationHeader/>
+           <UserHeader />
             <Switch>
                 <Route exact path="/" component={LandingPage} />
                 <Route path="/home" component={Home}/>
