@@ -6,6 +6,7 @@
 import request from '../../../utils/request';
 import { Apis } from 'constants/network';
 import { AccountActions } from 'constants/actions';
+import {Accounts}  from './../../data/data.js'
 
 // export function getHomeContent(pageOffset) {
 //     // console.log("=IN=")
@@ -25,11 +26,22 @@ import { AccountActions } from 'constants/actions';
 //     }
 // }
 
+/*This method will use when actual API call [start]*/
+function fetchAccounts() {
+  const URL = "ENTER API URL";
+  return fetch(URL, { method: 'GET'})
+     .then( response => Promise.all([response, response.json()]));
+}
+/*This method will use when actual API call [end]*/
+
 export const getUserAccount = () => {
     return (dispatch) => {
         dispatch({ type: AccountActions.GetUserAccount.Start});
-        setTimeout(() => {
-            dispatch( {type: AccountActions.GetUserAccount.Success});
-        }, 1000);
+        //fetchAccounts().then(([response, json])=>{  //Uncomment it when actual API call
+            setTimeout(() => {
+                dispatch( {type: AccountActions.GetUserAccount.Success, data:Accounts}); //Replace Accounts with json variable when actual API will call
+            }, 1000);
+      //  })
+
     }
 }
