@@ -1,0 +1,29 @@
+@import "../../../scss/common.scss";
+
+.card {
+    .content {
+        .bill-amount {
+            width: 50%;
+            display: inline-block;
+            padding-right: 22px;
+            vertical-align: middle;
+            .amount {
+                font-size: 20px;
+                color: #333333;
+            }
+            span{
+                display: block;
+            }
+        }
+        .bill-details {
+            width: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            span {
+                display: block;
+                color: #dddddd;
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
