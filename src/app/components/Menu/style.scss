@@ -2,11 +2,11 @@
 }
 
 .side-nav{
-  width:40%;
+  width:100%;
 }
 ul.side-nav{
   li.test{
-    border: 1px solid #E87200;
+    border: 0.5px solid #E87200;
     background-color: #ff9100;
     color:#fff;
     padding: 10px 8px;
@@ -32,16 +32,16 @@ ul.side-nav{
   padding:10px;
 }
 .padding-ul{
-  padding-left: 22px;
+  padding-left: 0px;
   padding-top: 30px;
 }
 .chiled-menu-items{
-    border: 1px solid #E87200;
+    border-bottom: 1px solid #ff9100;
     height: 40px;
-    background-color: #E87200;
+    background-color: #ffffff;
     padding: 8px;
     margin-bottom: 0;
-    color: #fff;
+    color: #ff9100;
 }
 .image-wrap{
   height: 30px;
