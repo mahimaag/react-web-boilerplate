@@ -86,16 +86,16 @@ const data = {
   }
 
 // Data for the Mobile Panels
-const accounts = {
-    usnerName:"Tabish Khan",
-    accountNumber:"11223444",
-    total: [
-    { id: 1001, name: 'Prepaid Mobile', number:"9911704188", fontIcon: 'mobile', isShow:true, accountType:['P']},
-    { id: 1002, name: 'Hybrid Mobile', number:"7827396007", fontIcon: 'mobile', isShow:true, accountType:['H']},
-    { id: 1003, name: 'Internet', number:"8877445566", fontIcon: 'wifi', isShow:true, accountType:['I']},
-    { id: 1004, name: 'TV Cable', number:"8899556633", fontIcon: 'television', isShow:true, accountType:['T']}
-    ]
-}
+// const accounts = {
+//     usnerName:"Tabish Khan",
+//     accountNumber:"11223444",
+//     total: [
+//     { id: 1001, name: 'Prepaid Mobile', number:"9911704188", fontIcon: 'mobile', isShow:true, accountType:['P']},
+//     { id: 1002, name: 'Hybrid Mobile', number:"7827396007", fontIcon: 'mobile', isShow:true, accountType:['H']},
+//     { id: 1003, name: 'Internet', number:"8877445566", fontIcon: 'wifi', isShow:true, accountType:['I']},
+//     { id: 1004, name: 'TV Cable', number:"8899556633", fontIcon: 'television', isShow:true, accountType:['T']}
+//     ]
+// }
 
 class Home extends Component {
 
@@ -124,7 +124,7 @@ class Home extends Component {
 
 
     render() {
-        
+
         if(this.props.account.isFetching){
             return (
                 <div>
@@ -142,7 +142,7 @@ class Home extends Component {
                   changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
                 />
 
-                <MobileListPanel data={accounts}
+              <MobileListPanel data={this.props.account.detail}
                   selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
                   changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
                 />
