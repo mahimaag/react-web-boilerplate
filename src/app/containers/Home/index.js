@@ -138,32 +138,33 @@ class Home extends Component {
         }
 
         return (
-          <div className="container row">
-            <div className="col-md-2">
-                <Tabs data={ data }
-                selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
-                />
+          <div className="container">
+            <div className="row">
+                <div className="col-md-3">
+                    <Tabs data={ data }
+                    selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    />
 
-              <MobileListPanel data={this.props.account.detail}
-                selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
-                />
-            </div>
-            <div className="col-md-10">
-                <div className="row">
-                    <div className="col-md-6">
-                        <Greeting user={this.props.user}/>
-                        <UsageCard tabs={tabContent}/>
-                        <TravelPass />
-                    </div>
-                    <div className="col-md-6">
-                        <CurrentBill user={this.props.user}/>
-                        <NearestStore user={this.props.user}/>
+                <MobileListPanel data={this.props.account.detail}
+                    selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    />
+                </div>
+                <div className="col-md-9">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <Greeting user={this.props.user}/>
+                            <UsageCard tabs={tabContent}/>
+                            <TravelPass />
+                        </div>
+                        <div className="col-md-6">
+                            <CurrentBill user={this.props.user}/>
+                            <NearestStore user={this.props.user}/>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="col-md-3"></div>
         </div>
         );
     }
