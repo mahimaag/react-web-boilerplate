@@ -4,7 +4,7 @@ import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox, Button } fro
 import {LoginFormFields} from '../../../constants/index';
 import AwareXButton from '../AwareXButton'
 import styles from './style.scss';
-import loginRightImage from '../../../assets/images/login_right_img.png';
+// import `loginRightImage` from '../../../assets/images/login_right_img.png';
 
 const InitialState = Object.freeze({
     email: '',
@@ -66,11 +66,12 @@ export default class LoginForm extends React.Component {
                     </Checkbox>
                     <AwareXButton type="btn-custom" text="Login" onClick={() => this.props.onLogin(this.state)}/>
                 </div>
-                <div className="col-md-5">
-                    <img src={loginRightImage}/>
+                <div className="col-md-2 customImageContainer">
+                    <img src={`/images/login_right_img.png`}/>
                 </div>
             </div>
             </div>
+
             </form>
         );
     }

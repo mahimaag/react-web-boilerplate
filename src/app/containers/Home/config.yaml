@@ -1,0 +1,17 @@
+---
+cards:
+- id: Ax_Card_Greeting
+  active: true
+  cardName: Greeting
+- id: My_Card_Current_Bill
+  active: true
+  cardName: CurrentBill
+- id: Ax_Card_My_Usage
+  active: true
+  cardName: UsageCard
+- id: Ax_Card_Nearest_Store
+  active: true
+  cardName: NearestStore
+- id: Ax_Card_Travel_Pass
+  active: true
+  cardName: TravelPass
