@@ -48,36 +48,29 @@ export default class LoginForm extends React.Component {
     render() {
         return (
             <form className="customFormContainer">
-                <div className="col-md-offset-4 col-md-4 customWrapper">
+                <div className="col-md-offset-4 col-md-6 customWrapper">
                 <div className="row">
                 <div className="col-md-7">
                     <h1 className="loginHeading">LOG IN</h1>
+                    <FormGroup controlId="formControlsEmail" className="customFormGroup">
+                        <ControlLabel className="custom-label">Email/Username</ControlLabel>
+                        <FormControl id="formControlsEmail" className="customFormControl" type="email" label="Email address"
+                                     value={this.state.email} placeholder="Enter email" onChange={(e) => this.handleChange(e)}/>
+                    </FormGroup>
+                    <FormGroup controlId="formControlsPassword" className="customFormGroup">
+                        <ControlLabel className="custom-label">Password</ControlLabel>
+                        <FormControl id="formControlsPassword" className="customFormControl" type="password" label="Password" value={this.state.password} placeholder="Password" onChange={(e) => this.handleChange(e)}/>
+                    </FormGroup>
+                    <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')} id="rememberMe" className="custom-checkbox">
+                        <label htmlFor="rememberMe"> Remember Me </label>
+                    </Checkbox>
+                    <AwareXButton type="btn-custom" text="Login" onClick={() => this.props.onLogin(this.state)}/>
                 </div>
-            </div>
-            <div className="row">
-                <div className = "col-md-7">
-                <FormGroup controlId="formControlsEmail" className="customFormGroup">
-                    <ControlLabel className="custom-label">Email/Username</ControlLabel>
-                    <FormControl id="formControlsEmail" className="customFormControl" type="email" label="Email address"
-                                 value={this.state.email} placeholder="Enter email" onChange={(e) => this.handleChange(e)}/>
-                </FormGroup>
-                <FormGroup controlId="formControlsPassword" className="customFormGroup">
-                    <ControlLabel className="custom-label">Password</ControlLabel>
-                    <FormControl id="formControlsPassword" className="customFormControl" type="password" label="Password" value={this.state.password} placeholder="Password" onChange={(e) => this.handleChange(e)}/>
-                </FormGroup>
-                <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')} id="rememberMe" className="custom-checkbox">
-                    <label htmlFor="rememberMe"> Remember Me </label>
-                </Checkbox>
-                <Button type="submit" className="btn-custom" onClick={() => this.props.onLogin(this.state)}>
-                    Login
-                </Button>
-                </div>
-            </div>
-            </div>
-                <div className="col-md-2 customImageContainer">
+                <div className="col-md-5">
                     <img src={loginRightImage}/>
                 </div>
-                <AwareXButton type="btn_primary" text="Login" onClick={() => this.props.onLogin(this.state)}/>
+            </div>
+            </div>
             </form>
         );
     }
