@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox, Button } from 'react-bootstrap';
 import {LoginFormFields} from '../../../constants/index';
+import AwareXButton from '../AwareXButton'
 import styles from './style.scss';
 import loginRightImage from '../../../assets/images/login_right_img.png';
 
@@ -76,6 +77,7 @@ export default class LoginForm extends React.Component {
                 <div className="col-md-2 customImageContainer">
                     <img src={loginRightImage}/>
                 </div>
+                <AwareXButton type="btn_primary" text="Login" onClick={() => this.props.onLogin(this.state)}/>
             </form>
         );
     }

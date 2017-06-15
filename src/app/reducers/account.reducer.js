@@ -7,8 +7,8 @@ import _ from 'lodash';
 // Represents an user account object and its current state.
 const initialState = Object.freeze({
     isFetching: true,
-    detail: {},                // user object from Apis.    
-    error: {}                  // error from Apis. 
+    detail: {},                // user object from Apis.
+    error: {}                  // error from Apis.
 });
 
 const AccountReducer = (state = initialState, action) => {
@@ -16,6 +16,7 @@ const AccountReducer = (state = initialState, action) => {
     switch(action.type) {
         case AccountActions.GetUserAccount.Success:
             duplicateState.isFetching = false;
+            duplicateState.detail = action.data
             break;
 
         case AccountActions.GetUserAccount.Failure:
