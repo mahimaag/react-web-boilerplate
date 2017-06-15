@@ -14,6 +14,7 @@ import TravelPass from '../../components/TravelPass';
 import CurrentBill from '../../components/CurrentBill';
 import Greeting from '../../components/GreetingCard';
 import NearestStore from '../../components/NearestStore';
+import uiConfig from './config.yaml';
 
 // import Rails from '../Rails';
 // import {getHomeContent} from './action';
@@ -101,6 +102,28 @@ const accounts = {
     ]
 }
 
+const AvailableComponents = {
+    Greeting: {
+        componentName: Greeting,
+        requiredProps: ['user']
+    },
+    UsageCard: {
+        componentName: UsageCard,
+        requiredProps: ['tabs']
+    },
+    CurrentBill: {
+        componentName: CurrentBill,
+        requiredProps: ['user']
+    },
+    NearestStore: {
+        componentName: NearestStore,
+        requiredProps: ['user']
+    },
+    TravelPass: {
+        componentName: TravelPass,
+        requiredProps: ['user']
+    }
+}
 class Home extends Component {
 
     // constructor for the props
@@ -154,13 +177,35 @@ class Home extends Component {
                 <div className="col-md-9">
                     <div className="row">
                         <div className="col-md-6">
-                            <Greeting user={this.props.user}/>
-                            <UsageCard tabs={tabContent}/>
-                            <TravelPass />
+                            {
+                                uiConfig.cards
+                                    .filter((cardConfig, index) => index%2 == 0)
+                                    .map((cardConfig, index) => {
+                                        const CardComponent = AvailableComponents[cardConfig.cardName].componentName;
+                                        return (
+                                            <CardComponent  tabs={tabContent} 
+                                                            user={this.props.user} 
+                                                            key={index}
+                                            />
+                                        )
+                                    })
+                            }
+                           
                         </div>
                         <div className="col-md-6">
-                            <CurrentBill user={this.props.user}/>
-                            <NearestStore user={this.props.user}/>
+                            {
+                                uiConfig.cards
+                                    .filter((cardConfig, index) => index%2 != 0)
+                                    .map((cardConfig, index) => {
+                                        const CardComponent = AvailableComponents[cardConfig.cardName].componentName;
+                                        return (
+                                            <CardComponent  tabs={tabContent} 
+                                                            user={this.props.user} 
+                                                            key={index}
+                                            />
+                                        )
+                                    })
+                            }
                         </div>
                     </div>
                 </div>
@@ -169,7 +214,9 @@ class Home extends Component {
         );
     }
 }
-
+//  <Greeting user={this.props.user}/>
+//                             <UsageCard tabs={tabContent}/>
+//                             <TravelPass />
 const mapStateToProps = (state) => {
     return {
         user: state.user,
