@@ -15,20 +15,35 @@ class LandingPage extends Component {
     login = (formFields) => {
         this.props.dispatch(login(formFields));
     };
-
+    
     render() {
+
+        if(this.props.user.isLoggingIn && !this.props.user.isLoggedIn){
+            return (
+                <div>
+                    <h1>
+                        Please wait while we are trying to log you into the system.
+                    </h1>
+                </div>
+            )
+        }
+
+        if(this.props.user.isLoggedIn){
+            return this.props.history.push('/home');
+        }
+
         return (
-        <div>
-            <h1>Login page</h1>
-            <LoginForm onLogin={(formFields) => this.login(formFields)}/>
-        </div>
+            <div>
+                <h1>Login page</h1>
+                <LoginForm onLogin={(formFields) => this.login(formFields)}/>
+            </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        ...state.login
+        user: state.user
     }
 }
 

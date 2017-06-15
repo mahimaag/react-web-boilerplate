@@ -3,14 +3,6 @@
  */
 import './environment.constants';
 
-export const RequestMethod = {
-    GET: 'GET',
-    POST: 'POST',
-    PUT: 'PUT',
-    DELETE: 'DELETE',
-
-};
-
 export const LoginFormFields = {
     email: 'email',
     password: 'password',
