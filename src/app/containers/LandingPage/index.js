@@ -34,7 +34,6 @@ class LandingPage extends Component {
 
         return (
             <div>
-                <h1>Login page</h1>
                 <LoginForm onLogin={(formFields) => this.login(formFields)}/>
             </div>
         );
