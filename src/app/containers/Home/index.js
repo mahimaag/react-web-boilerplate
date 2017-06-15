@@ -134,18 +134,22 @@ class Home extends Component {
         }
 
         return (
-            <div>
-                <UsageCard tabs={tabContent}/>
+            <div className="container row">
+                <div className="col-md-2">
+                    <Tabs data={ data }
+                    selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    />
 
-                <Tabs data={ data }
-                  selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                  changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
-                />
-
-                <MobileListPanel data={accounts}
-                  selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                  changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
-                />
+                    <MobileListPanel data={accounts}
+                    selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    />                
+                </div>
+                <div className="col-md-6">
+                    <UsageCard tabs={tabContent}/>            
+                </div>
+                <div className="col-md-2"></div>
             </div>
         );
     }
