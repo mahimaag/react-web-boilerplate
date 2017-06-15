@@ -2,6 +2,7 @@
  * Created by intelligrape on 5/6/17.
  */
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 //Importing Styles
@@ -11,12 +12,21 @@ class ApplicationHeader extends React.Component {
     render() {
         return (
             <header className="app_header">
-                <Link to="/">
-                    Back to Home
-                </Link>
+                {this.props.user && this.props.user.isLoggedIn ?
+                    <Link to="/home">
+                        Back to Home
+                    </Link>
+                : null}
+
             </header>
         );
     }
 }
 
-export default ApplicationHeader;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps)(ApplicationHeader);

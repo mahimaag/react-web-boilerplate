@@ -2,6 +2,7 @@
  * Created by intelligrape on 5/6/17.
  */
 import React from 'react';
+import { connect } from 'react-redux';
 import Help from '../Help';
 import ActionBarDropDown from '../ActionBarDropDown';
 import Logout from '../Logout';
@@ -17,14 +18,22 @@ class UserHeader extends React.Component {
                 <div className="col-md-6">
                     Logo here
                 </div>
-                <div className="col-md-6 action_items">
-                    <Help/>
-                    <ActionBarDropDown/>
-                    <Logout />
-                </div>
+                {this.props.user && this.props.user.isLoggedIn ?
+                    <div className="col-md-6 action_items">
+                        <Help/>
+                        <ActionBarDropDown/>
+                        <Logout />
+                    </div>
+                    : null}
             </header>
         );
     }
 }
 
-export default UserHeader;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+};
+
+export default connect(mapStateToProps)(UserHeader);
