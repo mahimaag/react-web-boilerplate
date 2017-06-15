@@ -10,6 +10,10 @@ import UsageCard from '../../components/UsageCard';
 import Tabs from '../../components/Menu'
 import MobileListPanel from '../../components/MobileListPanel'
 import { getUserAccount } from './action';
+import TravelPass from '../../components/TravelPass';
+import CurrentBill from '../../components/CurrentBill';
+import Greeting from '../../components/GreetingCard';
+import NearestStore from '../../components/NearestStore';
 
 // import Rails from '../Rails';
 // import {getHomeContent} from './action';
@@ -146,10 +150,19 @@ class Home extends Component {
                     changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
                     />                
                 </div>
-                <div className="col-md-6">
-                    <UsageCard tabs={tabContent}/>            
+                <div className="col-md-10">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <Greeting user={this.props.user}/>
+                            <UsageCard tabs={tabContent}/>
+                            <TravelPass />
+                        </div>
+                        <div className="col-md-6">
+                            <CurrentBill user={this.props.user}/>
+                            <NearestStore user={this.props.user}/>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-md-2"></div>
             </div>
         );
     }

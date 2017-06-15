@@ -41,10 +41,14 @@ class UsageCard extends React.Component {
         const slides = this.getSlides(this.props.tabs);
         console.log('Slides are -->', slides);
         return (
-            <div>
+            <div className="card">
+                <h3 className="title"> My Usage
+                </h3>
+                <div className="content">
                 {
                     <UsageCategorySlider slides={slides} data={this.props.tabs}/>
                 }
+                </div>
             </div>
         )
 

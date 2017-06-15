@@ -17,3 +17,51 @@
 // @import "../app/containers/Rails/style";
 // @import "../app/components/Card/style";
 // @import "../app/containers/ContentList/style";
+
+
+.card {
+    background: $card-background;
+    border-radius: 5px;
+    padding: 15px 10px 25px 10px;
+    margin: 10px;
+    h3 {
+        text-transform: uppercase;
+        color: $muted-color;
+        font-size: 16px;
+        padding: 4px 0;
+        border-bottom: 1px solid #dddddd;
+        margin: 0;
+    }
+    p {
+        margin: 10px 0;
+        color: $muted-color;
+    }
+    .content {
+
+        .button-actions {
+            margin-top: 25px;
+            div {
+                width: 50%;
+                display: inline-block;
+                &:first-child {
+                    padding-right: 20px;
+                    background-color: $secondary-color;
+                    a {
+                        color: $secondary-text-color;
+                    }
+                }
+                &:last-child {
+                    padding-right: 20px;
+                    background-color: $primary-color;
+                    color: $primary-text-color;
+                    a {
+                        color: $primary-text-color;
+                    }
+                }                
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
