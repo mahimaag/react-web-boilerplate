@@ -2,11 +2,13 @@
 
 .slider-container {
     margin: 0 auto;
-    padding: 44px;
-    width: 40%;
+    padding: 20px 44px 44px 44px;
+    width: 100%;
     color: #ffffff;
     background: #ffffff;
-    border: solid 1px #000000;
+    border: solid 1px #e0d7d7;
+    border-radius: 7px;
+    margin-top: 30px;
 }
 
 .slick-dots li button:before {
