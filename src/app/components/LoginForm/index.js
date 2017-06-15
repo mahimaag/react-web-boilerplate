@@ -5,6 +5,7 @@ import {LoginFormFields} from '../../../constants/index';
 import AwareXButton from '../AwareXButton'
 import styles from './style.scss';
 import loginRightImage from '../../../assets/images/login_right_img.png';
+import AXLink from '../AXLink';
 
 const InitialState = Object.freeze({
     email: '',
@@ -65,6 +66,8 @@ export default class LoginForm extends React.Component {
                         <label htmlFor="rememberMe"> Remember Me </label>
                     </Checkbox>
                     <AwareXButton type="btn-custom" text="Login" onClick={() => this.props.onLogin(this.state)}/>
+                    <AXLink text="Register Now"/>
+                    <AXLink text="Forgot Password?"/>
                 </div>
                 <div className="col-md-5">
                     <img src={loginRightImage}/>

@@ -1,0 +1,14 @@
+@import "../../../scss/common.scss";
+
+.logo{
+  width: 475px;
+  height: 55px;
+  background: white;
+  border-bottom-right-radius: 100%;
+}
+.logo-text{
+  text-align: left;
+  margin-left: 34px;
+  color: $logo-color;
+  font-family: serif;
+}
