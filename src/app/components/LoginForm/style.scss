@@ -1,1 +1,127 @@
 @import "../../../scss/common.scss";
+
+$labelColor: #b6b6b6;
+$normalFont: normal;
+
+body{
+  background: #0c4655;
+}
+
+.custom-label{
+  color: $labelColor;
+  font-size:15px;
+  font-weight:$normalFont;
+}
+
+.customFormGroup{
+
+  input{
+    -webkit-border-radius:0px;
+    -moz-border-radius:0px;
+    border-radius:0px;
+  }
+}
+
+.btn-custom{
+  width:100%;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  background: #f89521;
+  color: #fff;
+  font-size: 16px;
+  padding:8px 5px;
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #fff;
+  transition: all .2s;
+  border:2px solid transparent;
+  box-shadow: none;
+  background: #7ebc08;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+.custom-checkbox {
+  label{
+    padding-left:0px;
+  }
+}
+
+.loginHeading{
+  color: #aaaaaa;
+  font-size:20px;
+  border-bottom: 1px solid #f0ecec;
+  margin-bottom:30px;
+  line-height: 30px;
+}
+
+.customFormContainer{
+  padding:10px;
+}
+
+.customWrapper{
+    background: #fff;
+    padding:25px 20px 40px 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+.customImageContainer{
+  background:#fff;
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+}

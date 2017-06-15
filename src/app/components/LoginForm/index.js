@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox, Button } from 'react-bootstrap';
 import {LoginFormFields} from '../../../constants/index';
+import styles from './style.scss';
+import loginRightImage from '../../../assets/images/login_right_img.png';
 
 const InitialState = Object.freeze({
     email: '',
@@ -44,22 +46,36 @@ export default class LoginForm extends React.Component {
 
     render() {
         return (
-            <form>
-                <FormGroup controlId="formControlsEmail">
-                    <ControlLabel>Email/Username</ControlLabel>
-                    <FormControl id="formControlsEmail" type="email" label="Email address"
+            <form className="customFormContainer">
+                <div className="col-md-offset-4 col-md-4 customWrapper">
+                <div className="row">
+                <div className="col-md-7">
+                    <h1 className="loginHeading">LOG IN</h1>
+                </div>
+            </div>
+            <div className="row">
+                <div className = "col-md-7">
+                <FormGroup controlId="formControlsEmail" className="customFormGroup">
+                    <ControlLabel className="custom-label">Email/Username</ControlLabel>
+                    <FormControl id="formControlsEmail" className="customFormControl" type="email" label="Email address"
                                  value={this.state.email} placeholder="Enter email" onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>
-                <FormGroup controlId="formControlsPassword">
-                    <ControlLabel>Password</ControlLabel>
-                    <FormControl id="formControlsPassword" type="password" label="Password" value={this.state.password} placeholder="Password" onChange={(e) => this.handleChange(e)}/>
+                <FormGroup controlId="formControlsPassword" className="customFormGroup">
+                    <ControlLabel className="custom-label">Password</ControlLabel>
+                    <FormControl id="formControlsPassword" className="customFormControl" type="password" label="Password" value={this.state.password} placeholder="Password" onChange={(e) => this.handleChange(e)}/>
                 </FormGroup>
-                <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')}>
-                    Remember Me
+                <Checkbox checked={this.state.rememberMe} label="ememberMe" onChange={(e) => this.handleChange(e, 'rememberMe')} id="rememberMe" className="custom-checkbox">
+                    <label htmlFor="rememberMe"> Remember Me </label>
                 </Checkbox>
-                <Button type="submit" className="btn_primary" onClick={() => this.props.onLogin(this.state)}>
+                <Button type="submit" className="btn-custom" onClick={() => this.props.onLogin(this.state)}>
                     Login
                 </Button>
+                </div>
+            </div>
+            </div>
+                <div className="col-md-2 customImageContainer">
+                    <img src={loginRightImage}/>
+                </div>
             </form>
         );
     }
