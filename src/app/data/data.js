@@ -1,5 +1,5 @@
 export const Accounts ={
-    "usnerName":"Tabish Khan",
+    "userName":"Tabish Khan",
     "accountNumber":"11223444",
     "total": [
     { "id": 1001, "name": 'Prepaid Mobile', "number":"9911704188", "fontIcon": 'mobile', "isShow":true, "accountType":['P']},

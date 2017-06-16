@@ -27,9 +27,10 @@ class MobileListPanel extends React.Component{
   }
 
   render () {
+    // console.log("TETETETETET", this.props.account.selectedAccount)
     const changeState = this;
     return <div className="mobile-panel-size">
-      <Panel header={this.props.data.usnerName + "'s Account"} >
+      <Panel header={this.props.data.userName + "'s Account"} >
         Account Number {this.props.data.accountNumber}
         <ul className="list-unstyled" >
           {this.props.data.total.map(function(el, id){

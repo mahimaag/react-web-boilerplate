@@ -9,7 +9,7 @@ import FontAwesome from 'react-fontawesome';
 import UsageCard from '../../components/UsageCard';
 import Tabs from '../../components/Menu'
 import MobileListPanel from '../../components/MobileListPanel'
-import { getUserAccount } from './action';
+import { getUserAccount, getAccountType } from './action';
 import TravelPass from '../../components/TravelPass';
 import CurrentBill from '../../components/CurrentBill';
 import Greeting from '../../components/GreetingCard';
@@ -89,17 +89,7 @@ const data = {
     }
   }
 
-// Data for the Mobile Panels
-const accounts = {
-    usnerName:"Tabish Khan",
-    accountNumber:"11223444",
-    total: [
-    { id: 1001, name: 'Prepaid Mobile', number:"9911704188", fontIcon: 'mobile', isShow:true, accountType:['P']},
-    { id: 1002, name: 'Hybrid Mobile', number:"7827396007", fontIcon: 'mobile', isShow:true, accountType:['H']},
-    { id: 1003, name: 'Internet', number:"8877445566", fontIcon: 'wifi', isShow:true, accountType:['I']},
-    { id: 1004, name: 'TV Cable', number:"8899556633", fontIcon: 'television', isShow:true, accountType:['T']}
-    ]
-}
+
 
 class Home extends Component {
 
@@ -108,27 +98,26 @@ class Home extends Component {
       super(props);
       this.state = { };
       this.props.dispatch(getUserAccount());
-    }
+      }
 
-  //Get the default state
-  getInitialState (){
-   return {
-     selectedMobilePanelId: 1,
-     selectedPanelAccountType:['P', 'H', 'I', 'T']
+    //Get the default state
+    getInitialState (){
+     return {
+       selectedMobilePanelId: 1,
+       selectedPanelAccountType:['P', 'H', 'I', 'T']
+     }
    }
- }
 
-   //Update the state from any of the components
- changeFirst (newValue) {
-   this.setState({
-     selectedMobilePanelId: newValue.selectedPanelTabId,
-     selectedPanelAccountType:newValue.selectedPanelAccountType
-   });
- }
-
+     //Update the state from any of the components
+   changeFirst (newValue) {
+     this.setState({
+       selectedMobilePanelId: newValue.selectedPanelTabId,
+       selectedPanelAccountType:newValue.selectedPanelAccountType
+     });
+     this.props.dispatch(getAccountType(newValue.selectedPanelTabId));
+   }
 
     render() {
-        
         if(this.props.account.isFetching){
             return (
                 <div>
@@ -136,19 +125,18 @@ class Home extends Component {
                 </div>
             )
         }
-
         return (
           <div className="container">
             <div className="row">
                 <div className="col-md-3">
                     <Tabs data={ data }
                     selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}                       //Update the account pannel type
                     />
 
                 <MobileListPanel data={this.props.account.detail}
                     selectedPanelAccountType={this.state.selectedPanelAccountType}  //Get the account pannel type
-                    changeFirst={this.changeFirst.bind(this)}  //Update the account pannel type
+                    changeFirst={this.changeFirst.bind(this)}                       //Update the account pannel type
                     />
                 </div>
                 <div className="col-md-9">
