@@ -1,0 +1,42 @@
+@import "../../../scss/common.scss";
+
+.card {
+    background: $card-background;
+    border-radius: 5px;
+    padding: 15px 10px 25px 10px;
+    margin: 10px;
+}
+
+.card-subtitle {
+    margin: 10px 0;
+    color: $muted-color;
+}
+
+.card-title {
+    text-transform: uppercase;
+    color: $muted-color;
+    font-size: 16px;
+    padding: 4px 0;
+    border-bottom: 1px solid #dddddd;
+    margin: 0;
+}
+
+.button-actions {
+    margin-top: 25px;
+    div {
+        display: flex;
+        .secondary {
+            padding-right: 20px;
+            background-color: $secondary-color;
+            color: $secondary-text-color;
+        }
+        .primary {
+            padding-right: 20px;
+            background-color: $primary-color;
+            color: $primary-text-color;
+        }                
+        .btn {
+            width: 100%;
+        }
+    }
+}

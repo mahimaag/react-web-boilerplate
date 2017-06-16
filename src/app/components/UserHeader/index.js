@@ -7,6 +7,7 @@ import Help from '../Help';
 import ActionBarDropDown from '../ActionBarDropDown';
 import Logout from '../Logout';
 import { Link } from 'react-router-dom';
+import AXLogo from '../AXLogo';
 
 //Importing Styles
 import './style.scss';
@@ -16,7 +17,7 @@ class UserHeader extends React.Component {
         return (
             <header className="user_header row">
                 <div className="col-md-6">
-                    Logo here
+                    <AXLogo/>
                 </div>
                 {this.props.user && this.props.user.isLoggedIn ?
                     <div className="col-md-6 action_items">
