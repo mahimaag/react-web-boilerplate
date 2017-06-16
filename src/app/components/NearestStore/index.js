@@ -5,7 +5,7 @@ export default class NearestStore extends React.Component{
     render () {
         return (
             <div className="card">
-                <h3 className="title">My Current Bill</h3>
+                <h3 className="title">Nearest Store</h3>
                 <p>Your Current Bill Amount</p>
                 <div className="content">
                     <div className="bill-amount">

@@ -4,7 +4,6 @@ import { FormGroup, ControlLabel, HelpBlock, FormControl, Checkbox, Button } fro
 import {LoginFormFields} from '../../../constants/index';
 import AwareXButton from '../AwareXButton'
 import styles from './style.scss';
-import loginRightImage from '../../../assets/images/login_right_img.png';
 import AXLink from '../AXLink';
 
 const InitialState = Object.freeze({
@@ -69,11 +68,12 @@ export default class LoginForm extends React.Component {
                     <AXLink text="Register Now"/>
                     <AXLink text="Forgot Password?"/>
                 </div>
-                <div className="col-md-5">
-                    <img src={loginRightImage}/>
+                <div className="col-md-2 customImageContainer">
+                    <img src={`/images/login_right_img.png`}/>
                 </div>
             </div>
             </div>
+
             </form>
         );
     }
