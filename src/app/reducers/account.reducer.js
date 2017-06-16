@@ -8,7 +8,8 @@ import _ from 'lodash';
 const initialState = Object.freeze({
     isFetching: true,
     detail: {},                // user object from Apis.
-    error: {}                  // error from Apis.
+    error: {} ,               // error from Apis.
+    selectedAccount:""
 });
 
 const AccountReducer = (state = initialState, action) => {
@@ -16,7 +17,7 @@ const AccountReducer = (state = initialState, action) => {
     switch(action.type) {
         case AccountActions.GetUserAccount.Success:
             duplicateState.isFetching = false;
-            duplicateState.detail = action.data
+            duplicateState.detail = action.data;
             break;
 
         case AccountActions.GetUserAccount.Failure:
@@ -26,6 +27,9 @@ const AccountReducer = (state = initialState, action) => {
         case AccountActions.GetUserAccount.Start:
             duplicateState.isFetching = true;
             break;
+        case AccountActions.GetUserAccount.StateChange:
+             duplicateState.selectedAccount = action.selectedAccount;
+             break;
         default:
             break;
     }

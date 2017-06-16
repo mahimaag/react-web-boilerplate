@@ -45,3 +45,10 @@ export const getUserAccount = () => {
 
     }
 }
+
+export const getAccountType = (selectedAccount) => {
+  console.log("KKKKKKKKKKKKK",selectedAccount)
+    return (dispatch) => {
+            dispatch( {type: AccountActions.GetUserAccount.StateChange, selectedAccount:selectedAccount});
+        }
+}

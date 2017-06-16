@@ -10,6 +10,7 @@ export const AccountActions = {
     GetUserAccount: {
         Success: 'Account.GetUserAccount.Success',
         Failure: 'Account.GetUserAccount.Failure',
-        Start: 'Account.GetUserAccount.Start'
+        Start: 'Account.GetUserAccount.Start',
+        StateChange: 'Account.GetUserAccount.StateChange'
     }
 }
